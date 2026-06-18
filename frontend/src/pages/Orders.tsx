@@ -3,7 +3,6 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { Plus, ShoppingCart, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import {
@@ -19,15 +18,6 @@ import { orderService } from '@/services/orders'
 import { productService } from '@/services/products'
 import { customerService } from '@/services/customers'
 import type { Order, Product, Customer } from '@/types'
-
-function StatusBadge({ status }: { status: Order['status'] }) {
-  const map = {
-    pending: 'warning',
-    completed: 'success',
-    cancelled: 'destructive',
-  } as const
-  return <Badge variant={map[status]}>{status}</Badge>
-}
 
 interface CartItem {
   product: Product
